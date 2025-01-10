@@ -1,61 +1,100 @@
-import { ArrowRight, Calendar, MapPin, Users } from 'lucide-react';
+import { ArrowRight, Calendar, Users, MapPin, Star } from "lucide-react";
 
-const Hero = () => {
+export default function Hero() {
+  const features = [
+    {
+      icon: <Calendar className="h-8 w-8 text-blue-500" />,
+      title: "Easy Scheduling",
+      description: "Book venues and vendors in just a few clicks"
+    },
+    {
+      icon: <Users className="h-8 w-8 text-blue-500" />,
+      title: "Team Collaboration",
+      description: "Work together with event planners and vendors"
+    },
+    {
+      icon: <MapPin className="h-8 w-8 text-blue-500" />,
+      title: "Venue Selection",
+      description: "Access to premium venues worldwide"
+    },
+    {
+      icon: <Star className="h-8 w-8 text-blue-500" />,
+      title: "Expert Support",
+      description: "24/7 assistance from event specialists"
+    }
+  ];
+
   return (
-    <div className="relative overflow-hidden bg-white">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-blue-50" aria-hidden="true">
-        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:pt-24 sm:pb-20">
-        <div className="text-center">
-          {/* Main Heading */}
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block">Plan Your Perfect Event</span>
-            <span className="block text-blue-600">All in One Place</span>
-          </h1>
-
-          {/* Subheading */}
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
-            Connect with the best venues, vendors, and services to create unforgettable events. 
-            Your vision, our network – seamlessly brought together.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="mt-8 flex justify-center gap-4">
-            <button className="rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">
-              Start Planning
-              <ArrowRight className="ml-2 -mr-1 inline-block h-4 w-4" />
-            </button>
-            <button className="rounded-lg bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-              Browse Venues
-            </button>
+    <div className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
+      
+      <div className="relative pt-24 pb-20 sm:pt-32 sm:pb-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Hero Content */}
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl md:text-7xl">
+              <span className="block mb-2">Create Memorable</span>
+              <span className="block bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Events Together
+              </span>
+            </h1>
+            <p className="mt-8 text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+              From intimate gatherings to grand celebrations, we help you plan and execute
+              perfect events that leave lasting impressions.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+              <button className="group inline-flex items-center justify-center px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold text-lg hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl">
+                Start Planning
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="px-8 py-4 rounded-xl bg-white text-gray-900 font-semibold text-lg ring-1 ring-gray-200 hover:ring-gray-300 hover:bg-gray-50 transition-all duration-200 shadow-md hover:shadow-lg">
+                Learn More
+              </button>
+            </div>
           </div>
 
-          {/* Feature Highlights */}
-          <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3 lg:mt-20">
-            <div className="flex flex-col items-center">
-              <MapPin className="h-8 w-8 text-blue-600" />
-              <h3 className="mt-4 text-lg font-semibold text-gray-900">Premium Venues</h3>
-              <p className="mt-2 text-sm text-gray-600">Curated selection of stunning locations</p>
+          {/* Hero Image */}
+          <div className="mt-20 relative max-w-5xl mx-auto">
+            <div className="absolute -top-8 -right-8 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
+            <div className="absolute -bottom-8 -left-8 w-96 h-96 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" />
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://images.pexels.com/photos/949224/pexels-photo-949224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt="Event Planning"
+                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+              />
             </div>
-            <div className="flex flex-col items-center">
-              <Users className="h-8 w-8 text-blue-600" />
-              <h3 className="mt-4 text-lg font-semibold text-gray-900">Trusted Vendors</h3>
-              <p className="mt-2 text-sm text-gray-600">Top-rated service providers</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <Calendar className="h-8 w-8 text-blue-600" />
-              <h3 className="mt-4 text-lg font-semibold text-gray-900">Easy Planning</h3>
-              <p className="mt-2 text-sm text-gray-600">Streamlined booking process</p>
+          </div>
+
+          {/* Features */}
+          <div className="mt-32 max-w-6xl mx-auto">
+            <h2 className="text-center text-4xl font-bold text-gray-900 mb-20">
+              Everything you need to create
+              <span className="block mt-2 text-blue-600">perfect events</span>
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="group relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-blue-50 mb-6 group-hover:bg-blue-100 transition-colors duration-200">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default Hero;
-
+}

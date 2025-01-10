@@ -1,13 +1,17 @@
-import NavBar from "./components/NavBar"
-import Hero from "./components/Hero"
-// import Footer from "./components/Footer"
+import LandingPage from "./pages/LandingPage"
+import {BrowserRouter as Router ,Routes , Route} from "react-router-dom"
+
+
+
 export default function App () {
     return (
         <>
-            <NavBar />
-            <Hero />
-            
-            {/* <Footer /> */}
+            <Router>
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    
+                </Routes>
+            </Router>
         </>
     )
 }

@@ -1,93 +1,73 @@
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-export default function NavBar() {
-    const [state, setState] = useState(false);
+const NavBar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const navigation = [
+    { title: "Features", path: "#features" },
+    { title: "How it Works", path: "#how-it-works" },
+    { title: "FAQ", path: "#faq" },
+    { title: "Contact", path: "#contact" },
+  ];
 
-    const navigation = [
-        { title: "Customers", path: "javascript:void(0)" },
-        { title: "Careers", path: "javascript:void(0)" },
-        { title: "Guides", path: "javascript:void(0)" },
-        { title: "Partners", path: "javascript:void(0)" }
-    ];
-
-    return (
-        <nav className="relative bg-white w-full border-b md:border-0 md:static">
-            {/* Background Pattern for Mobile and Desktop */}
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-blue-50" aria-hidden="true">
-                <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
-            </div>
-
-            <div className="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8 relative z-10">
-                <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                    <a href="javascript:void(0)">
-                        <img
-                            src="https://www.floatui.com/logo.svg"
-                            width={120}
-                            height={50}
-                            alt="Float UI logo"
-                        />
-                    </a>
-                    <div className="md:hidden">
-                        <button
-                            className="text-gray-700 outline-none p-2 rounded-md focus:border-gray-400 focus:border"
-                            onClick={() => setState(!state)}
-                        >
-                            {state ? (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
-                                    viewBox="0 0 20 20"
-                                    fill="currentColor"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clipRule="evenodd"
-                                    />
-                                </svg>
-                            ) : (
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-6 w-6"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M4 8h16M4 16h16"
-                                    />
-                                </svg>
-                            )}
-                        </button>
-                    </div>
-                </div>
-
-                <div
-                    className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${state ? 'block' : 'hidden'}`}
+  return (
+    <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex-shrink-0">
+            <span className="text-2xl font-bold text-blue-600">eventify</span>
+          </div>
+          
+          <div className="hidden md:block">
+            <div className="flex items-center space-x-8">
+              {navigation.map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.path}
+                  className="text-gray-600 hover:text-blue-600 transition-colors px-3 py-2 text-sm font-medium"
                 >
-                    <ul className="justify-center items-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                        {navigation.map((item, idx) => {
-                            return (
-                                <li key={idx} className="text-gray-600 hover:text-indigo-600">
-                                    <a href={item.path}>{item.title}</a>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </div>
-
-                <div className="hidden md:inline-block">
-                    <a
-                        href="javascript:void(0)"
-                        className="py-3 px-4 text-white bg-indigo-600 hover:bg-indigo-700 rounded-md shadow"
-                    >
-                        Get Started
-                    </a>
-                </div>
+                  {item.title}
+                </a>
+              ))}
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                Get Started
+              </button>
             </div>
-        </nav>
-    );
-}
+          </div>
+          
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-600 hover:text-gray-900 p-2"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
+            {navigation.map((item, idx) => (
+              <a
+                key={idx}
+                href={item.path}
+                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-blue-600"
+              >
+                {item.title}
+              </a>
+            ))}
+            <button className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+              Get Started
+            </button>
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+};
+
+export default NavBar;
