@@ -4,7 +4,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        '404': "url('/src/assets/background404.jpg')",
+      }
+    },
   },
   plugins: [],
 };
