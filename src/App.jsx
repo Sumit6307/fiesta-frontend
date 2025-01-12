@@ -5,7 +5,8 @@ import Signin from "./pages/Signin"
 import Page404 from "./pages/Page404"
 import HomePage from './pages/HomePage'
 import Card from "./components/Card"
-
+import Option from "./components/Option"
+import AdminPage from "./pages/AdminPage"
 
 
 export default function App () {
@@ -19,6 +20,8 @@ export default function App () {
                     <Route path="/home" element={<HomePage />} />
                     <Route path="*" element={<Page404 />} />
                     <Route path="/card" element={<Card />} />
+                    <Route path="/option" element={<Option />} />
+                    <Route path="/admin" element={<AdminPage />} />
                 </Routes>
             </Router>
         </>

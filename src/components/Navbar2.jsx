@@ -5,7 +5,7 @@ export default function Navbar2() {
     const [isOpen, setIsOpen] = useState(false)
     
     return (
-        <div className="shadow-md w-full fixed top-0 left-0">
+        <div className="shadow-md w-full fixed top-0 left-0 z-50">
             <nav className="lg:flex items-center justify-between bg-white py-4 md:px-10 px-7">
                 <div className="flex items-center justify-between gap-4">
                     <h2 className="hidden sm:block font-bold text-2xl text-indigo-600 cursor-pointer hover:text-indigo-700 transition-colors">

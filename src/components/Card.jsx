@@ -1,11 +1,13 @@
 import { Share, Heart } from 'lucide-react';
 
+
+
 const Card = () => {
     return (
-        <div className="flex flex-col max-w-[500px] w-full mx-auto p-4 sm:p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div className="flex flex-col max-w-[500px] w-full mx-auto p-4 sm:p-6 bg-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
             <div className="mb-4 rounded-xl overflow-hidden">
                 <img
-                    className="w-full h-[250px] sm:h-[300px] object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-[200px] sm:h-[250px] object-cover hover:scale-105 transition-transform duration-300 "
                     src="https://plus.unsplash.com/premium_photo-1664530452329-42682d3a73a7?q=80&w=500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Apartment"
                 />
