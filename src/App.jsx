@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage'
 import Card from "./components/Card"
 import Option from "./components/Option"
 import AdminPage from "./pages/AdminPage"
+import Venue from "./pages/Venue"
 
 
 export default function App () {
@@ -22,6 +23,7 @@ export default function App () {
                     <Route path="/card" element={<Card />} />
                     <Route path="/option" element={<Option />} />
                     <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/venue" element={<Venue />} />
                 </Routes>
             </Router>
         </>
